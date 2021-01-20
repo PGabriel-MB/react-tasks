@@ -3,5 +3,11 @@ header {
     display: flex;
     align-items: center;
     place-content: center;
+
+    text-align: center;
+    background-color: #47C2B1;
 }
 
+div h2 {
+    color: #ffffff;
+}
