@@ -1,8 +1,9 @@
 .Task {
     margin: 2rem;
     width: 40%;
+    color: #000000
 }
 
-.TaskContent {
-    
+.TaskHeader h2 {
+    color: #000000;
 }

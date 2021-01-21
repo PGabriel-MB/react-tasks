@@ -2,17 +2,21 @@ import React from 'react';
 
 import Task from "../Task/Task";
 
+import './TaskList.css'
+
 const TaskList = (props) => {
 
-    function getTasks() {
+    // function getTasks() {
+    // }
 
-    }
 
     return (
-        <div>
+        <div className="TaskList">
             {
-                props.tasks.forEach(task => (
-                    <Task task={task}/>
+                props.tasks.map(task => (
+                    <li key={task.taskName}>
+                        <Task task={task}/>
+                    </li>
                 ))
             }
         </div>
