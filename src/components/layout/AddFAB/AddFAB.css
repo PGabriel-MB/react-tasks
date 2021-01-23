@@ -1,8 +1,37 @@
 .AddFAB {
     background-color: #47C2B1;
-    font-size: 3em;
+    font-size: 4em;
     color: #ffffff;
     border-radius: 50%;
     border: none;
-    position: sticky;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 4rem;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.AddFAB:focus{
+    outline: none;
+}
+
+@keyframes click {
+    from{
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    }
+
+    to {
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+    }
+}
+
+.AddFAB:active {
+    animation-name: click;
+    animation-duration: .2s
 }
