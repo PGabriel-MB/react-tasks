@@ -13,8 +13,8 @@ const TaskList = (props) => {
     return (
         <div className="TaskList">
             {
-                props.tasks.map(task => (
-                    <li key={task.taskName}>
+                props.tasks.map((task, index) => (
+                    <li key={index}>
                         <Task task={task}/>
                     </li>
                 ))

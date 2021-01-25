@@ -1,5 +1,7 @@
 import React from 'react';
 
+import AddTaskModal from "../AddTaskModal/AddTaskModal";
+
 import './AddFAB.css';
 
 
@@ -24,10 +26,12 @@ class AddFAB extends React.Component {
 
     render() {
         return (
-            <button type="button" onClick={this.showModal()} className="AddFAB">
+        <div>
+            <button type="button" onClick={this.showModal} className="AddFAB">
                 <strong>+</strong>
             </button>
-
+            <AddTaskModal show={this.state.show}  handleClose={this.hideModal} />
+        </div>
         )
     }
 }
