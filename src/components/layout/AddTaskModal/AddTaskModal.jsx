@@ -8,7 +8,7 @@ const AddTaskModal = ({ handleClose, show }) => {
     return (
         <div className={showHideClassName}>
             <div className="modal-main">
-                <h2>I'm a Modal!!</h2>
+                <span>I'm a Modal!!</span>
             </div>
         </div>
     )
