@@ -13,15 +13,19 @@ class AddFAB extends React.Component {
         }
 
         this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
     }
 
     showModal() {
         this.setState({ show: true });
-        console.log(this.state.show)
     }
 
     hideModal() {
         this.setState({ show: false });
+    }
+
+    addTask = () => {
+        console.log('TU CLICOU EM MIM!')
     }
 
     render() {
@@ -30,7 +34,7 @@ class AddFAB extends React.Component {
             <button type="button" onClick={this.showModal} className="AddFAB">
                 <strong>+</strong>
             </button>
-            <AddTaskModal show={this.state.show}  handleClose={this.hideModal} />
+            <AddTaskModal show={this.state.show} addTask={this.addTask} handleClose={this.hideModal} />
         </div>
         )
     }

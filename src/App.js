@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header />
       <TaskList tasks={Task} />
-      <AddFAB />
+      <AddFAB tasks={Task}/>
     </div>
   );
 }
