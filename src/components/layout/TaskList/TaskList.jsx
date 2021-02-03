@@ -6,10 +6,6 @@ import './TaskList.css'
 
 const TaskList = (props) => {
 
-    // function getTasks() {
-    // }
-
-
     return (
         <div className="TaskList">
             {

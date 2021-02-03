@@ -24,8 +24,11 @@ class AddFAB extends React.Component {
         this.setState({ show: false });
     }
 
-    addTask = () => {
-        console.log('TU CLICOU EM MIM!')
+    addTask = ({ taskName, details }) => {
+        this.props.tasks.push({
+            taskName,
+            details
+        });
     }
 
     render() {
