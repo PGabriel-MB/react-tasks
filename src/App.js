@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import Header from "./components/layout/Header/Header";
@@ -8,6 +8,8 @@ import AddFAB from "./components/layout/AddFAB/AddFAB";
 import Task from "./models/Task";
 
 function App() {
+  const [task, setTask] = useState([...Task]);
+
   return (
     <div className="App">
       <Header />

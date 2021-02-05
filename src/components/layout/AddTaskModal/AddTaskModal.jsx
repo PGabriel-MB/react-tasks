@@ -5,8 +5,13 @@ import './AddTaskModal.css';
 const AddTaskModal = ({ handleClose, show, addTask }) => {
     const showHideClassName = show ? 'modal display-show' : 'modal display-none';
     
-    let [taskName, setTaskName] = useState('');
-    let [details, setDetails] = useState('');
+    const [taskName, setTaskName] = useState('');
+    const [details, setDetails] = useState('');
+
+    let add = () => {
+        addTask(taskName, details);
+        handleClose();
+    }
 
     return (
         <div className={showHideClassName}>
@@ -19,8 +24,8 @@ const AddTaskModal = ({ handleClose, show, addTask }) => {
                 <input type="text" name="details" id="details_id" value={details} onChange={e => setDetails(e.target.value)} />
 
                 <div className="footerModal">
-                    <button className="mr" type="button" onClick={handleClose()}>Cancel</button>
-                    <button className="btn-save" type="button" onClick={(e) => addTask(taskName, details)}>Add</button>
+                    <button className="mr" type="button" onClick={handleClose}>Cancel</button>
+                    <button className="btn-save" type="button" onClick={add}>Add</button>
                 </div>
             </div>
         </div>
