@@ -1,7 +1,7 @@
 .Task {
     margin: 2rem;
-    width: 40%;
-    color: #000000
+    color: #000000;
+    min-width: 800px;   
 }
 
 .TaskHeader h2 {

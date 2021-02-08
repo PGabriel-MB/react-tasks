@@ -9,7 +9,7 @@ const AddTaskModal = ({ handleClose, show, addTask }) => {
     const [details, setDetails] = useState('');
 
     let add = () => {
-        addTask(taskName, details);
+        addTask({ taskName, details });
         handleClose();
     }
 

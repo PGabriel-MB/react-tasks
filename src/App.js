@@ -8,13 +8,13 @@ import AddFAB from "./components/layout/AddFAB/AddFAB";
 import Task from "./models/Task";
 
 function App() {
-  const [task, setTask] = useState([...Task]);
+  const [tasks, setTasks] = useState([...Task]);
 
   return (
     <div className="App">
       <Header />
-      <TaskList tasks={Task} />
-      <AddFAB tasks={Task}/>
+      <TaskList tasks={tasks} />
+      <AddFAB tasks={tasks} configTasks={setTasks} />
     </div>
   );
 }

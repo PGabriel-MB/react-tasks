@@ -1,5 +1,8 @@
 .TaskList {
     padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
 }
 
 .TaskList li {

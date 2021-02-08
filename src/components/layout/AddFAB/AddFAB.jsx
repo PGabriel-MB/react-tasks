@@ -25,20 +25,25 @@ class AddFAB extends React.Component {
     }
 
     addTask = ({ taskName, details }) => {
-        this.props.tasks.push({
+        let newTask = {
             taskName,
             details
+        }
+
+        //let oldList = this.props.tasks;
+        this.props.configTasks(prevState => {
+            return [...prevState].concat(newTask)
         });
     }
 
     render() {
         return (
-        <div>
-            <button type="button" onClick={this.showModal} className="AddFAB">
-                <strong>+</strong>
-            </button>
-            <AddTaskModal show={this.state.show} addTask={this.addTask} handleClose={this.hideModal} />
-        </div>
+            <div>
+                <button type="button" onClick={this.showModal} className="AddFAB">
+                    <strong>+</strong>
+                </button>
+                <AddTaskModal show={this.state.show} addTask={this.addTask} handleClose={this.hideModal} />
+            </div>
         )
     }
 }
