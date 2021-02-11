@@ -1,7 +1,25 @@
 .Task {
     margin: 2rem;
     color: #000000;
-    min-width: 800px;   
+    width: 800px;
+}
+
+@media screen and (max-width: 800px) {
+    .Task {
+        width: 675px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Task {
+        width: 310px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .Task {
+        width: 260px;
+    }
 }
 
 .TaskHeader h2 {
