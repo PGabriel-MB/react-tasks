@@ -8,7 +8,7 @@ class RequestApi {
 
     }
 
-    getRequest({ route, needAtuthenticate = false }){
+    getRequest({ route, needAuthenticate = false }){
         axios.get()
     }
 }
