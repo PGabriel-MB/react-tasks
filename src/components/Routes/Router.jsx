@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import App from '../../App';
-import Login from "../../pages/Login";
+import Login from "../../pages/Login/Login";
 
 const Routes = () => (
     <BrowserRouter>

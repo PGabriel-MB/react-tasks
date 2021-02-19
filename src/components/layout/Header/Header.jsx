@@ -1,11 +1,11 @@
 import React from "react";
 import './Header.css'
 
-const Header = () => {
+const Header = ({ headerText }) => {
     return (
         <header>
             <div>
-                <h2>Minha Lista de Tarefas</h2>
+                <h2>{ headerText }</h2>
             </div>
         </header>
     ); 

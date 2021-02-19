@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header headerText="Minha Lista de Tarefas" />
       <TaskList tasks={tasks} />
       <AddFAB tasks={tasks} configTasks={setTasks} />
     </div>
