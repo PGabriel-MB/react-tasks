@@ -1,3 +1,12 @@
+# React-tasks
+Uma aplicação com foco em colocar alguns estudos sobre **React.js** em prática. Será uma aplicação simples sendo alimentado por um back-end em outra aplicação.
+
+
+<div style="text-align: center">
+  <img height="500" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" />
+</div>
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
