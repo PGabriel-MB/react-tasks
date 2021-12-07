@@ -5,7 +5,7 @@ import Header from "./components/layout/Header/Header";
 import TaskList from "./components/layout/TaskList/TaskList";
 import AddFAB from "./components/layout/AddFAB/AddFAB";
 
-import Task from "./models/Task";
+import Task from "./data/Task";
 
 function App() {
   const [tasks, setTasks] = useState([...Task]);

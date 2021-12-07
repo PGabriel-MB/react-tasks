@@ -32,10 +32,18 @@ form#login {
 
 .buttonStyle {
     min-width: 17rem;
+    font-weight: 900;
+}
+
+#loginButton{
     border: none !important;
     background-color: #47C2B1;
     color: white;
-    font-weight: 900;
+}
+
+#registerButton {
+    border: 2px solid #47C2B1;
+    color: #47C2B1;
 }
 
 .registerLink {
