@@ -1,7 +1,10 @@
-#loginContent {
+import styled from "styled-components";
+
+export const Container = styled.div`
     height: 100%;
     width: 100%;
-    background-color: #92F9E9;
+    background: radial-gradient(102.8% 100% at 11.200000000000001% 23%, #47c2b1 0%, rgb(24, 73, 66) 100%);
+    overflow: hidden;
     z-index: -2;
     top: 0;
     left: 0;
@@ -9,17 +12,35 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-}
+`;
 
-form#login {
+export const Form = styled.form`
     margin: 2em;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 1em;
-    padding-top: 2em;
+    padding-top: 3em;
+    padding-bottom: 3em;
     text-align: center;
     width: 20rem;
-}
+`;
+
+export const Input = styled.input`
+    outline: 0;
+    background-color: #A3EBE1;
+    color: #FFFFFF;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    padding: .5rem .7rem;
+    margin-bottom: 4vh;
+    font-size: 1.3em;
+    ::placeholder {
+        color: #FFFFFF;
+    }
+`;
+
+/* 
 
 #login input, #login button {
     padding: 1rem;
@@ -48,4 +69,4 @@ form#login {
 
 .registerLink {
     text-align: center;
-}
+} */
