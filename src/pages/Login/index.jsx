@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import {
     Container,
     Form,
-    Input
+    Input,
+    Button
 } from './styles.js';
 
 const Login = () => {
@@ -31,12 +32,16 @@ const Login = () => {
                     type="password"
                 />
                 <br />
-                <button
+                <Button
                     id="loginButton"
-                    className="buttonStyle"
                     type="button"
+                    style={{
+                        border: 'none',
+                        backgroundColor: '#47C2B1',
+                        color: 'white'
+                    }}
                     onClick={e => showData()}
-                >Login</button>
+                >Login</Button>
                 <button id="registerButton" className="buttonStyle" type="button" > Cadastro </button>
             </Form>
         </Container>

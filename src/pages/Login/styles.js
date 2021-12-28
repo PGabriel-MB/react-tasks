@@ -23,6 +23,7 @@ export const Form = styled.form`
     padding-bottom: 3em;
     text-align: center;
     width: 20rem;
+    box-shadow: 0 11px 12px 5px rgba(0, 0, 0, 0.25);
 `;
 
 export const Input = styled.input`
@@ -40,20 +41,22 @@ export const Input = styled.input`
     }
 `;
 
+export const Button = styled.button`
+    min-width: 17rem;
+    font-weight: 900;
+    border-radius: 7px;
+    padding: .5rem .7rem;
+    font-size: 1.2em;
+`;
+
 /* 
 
 #login input, #login button {
     padding: 1rem;
     border: 1px solid gray;
-    border-radius: 7px;
-    padding: .5rem .7rem;
+    
     margin-bottom: 4vh;
-    font-size: 1.2em;
-}
-
-.buttonStyle {
-    min-width: 17rem;
-    font-weight: 900;
+    
 }
 
 #loginButton{

@@ -9,6 +9,6 @@ class RequestApi {
     }
 
     getRequest({ route, needAuthenticate = false }) {
-        axios.get()
+        axios.get(`${this.#DEFAULT_URL}${route}`) 
     }
 }
