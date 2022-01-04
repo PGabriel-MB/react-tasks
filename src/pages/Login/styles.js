@@ -9,10 +9,24 @@ export const Container = styled.div`
     top: 0;
     left: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: fixed;
 `;
+
+export const TitleArea = styled.div`
+    display: flex;
+    align-content: center;
+    justify-content: center;
+`;
+
+export const Title = styled.span`
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    font-size: 5rem;
+`
 
 export const Form = styled.form`
     margin: 2em;
@@ -33,43 +47,19 @@ export const Input = styled.input`
     padding: 1rem;
     border: none;
     border-radius: 8px;
-    padding: .5rem .7rem;
+    padding: .7rem .7rem;
     margin-bottom: 4vh;
     font-size: 1.3em;
+    font-weight: bolder;
     ::placeholder {
         color: #FFFFFF;
     }
 `;
 
 export const Button = styled.button`
-    min-width: 17rem;
+    min-width: 8rem;
     font-weight: 900;
     border-radius: 7px;
     padding: .5rem .7rem;
-    font-size: 1.2em;
+    font-size: 1em;
 `;
-
-/* 
-
-#login input, #login button {
-    padding: 1rem;
-    border: 1px solid gray;
-    
-    margin-bottom: 4vh;
-    
-}
-
-#loginButton{
-    border: none !important;
-    background-color: #47C2B1;
-    color: white;
-}
-
-#registerButton {
-    border: 2px solid #47C2B1;
-    color: #47C2B1;
-}
-
-.registerLink {
-    text-align: center;
-} */
