@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { CheckCircle } from 'react-feather';
+
+import { Auth } from '../../services/auth.js';
 
 import {
     Container,
@@ -14,10 +16,31 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [formValid, setFormValid] = useState(true);
+    const [alertMessage, setAlertMessage] = useState('');
 
     const showData = () => {
         const data = { email, password }
-        console.log('Campos', data)
+        console.log('Campos', data, formValid, alertMessage)
+    }
+
+    const isEmpty = (value) => {
+        if (value)
+            setFormValid(true)
+        else {
+            setFormValid(false);
+            setAlertMessage('Preencha todos campos!')
+        }
+    }
+
+    const handleLogin = () => {
+        if (!formValid)
+            return
+        
+        Auth.login({ email, password })
+            .then(res => {
+                
+            })
     }
 
     return (
@@ -31,19 +54,23 @@ const Login = () => {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="E-mail" type="email"
+                    onBlur={e => isEmpty(e.target.value)}
+                    required
                 />
                 <Input
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder="Senha" 
                     type="password"
+                    onBlur={e => isEmpty(e.target.value)}
+                    required
                 />
                 <br />
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    padding: '0 1em'
+                    padding: '1em 1em'
                 }}>
                     <Button
                         id="loginButton"

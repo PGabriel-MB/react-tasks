@@ -1,0 +1,14 @@
+import { request } from './baseAxios'
+
+export const Auth = {
+    async login({ email, password }) {
+        return await request.post('/auth/login', { email, password });
+    },
+    async register({ name, email, password }) {
+        return await request.post('/auth/register', {
+            name,
+            email,
+            password
+        })
+    }
+}

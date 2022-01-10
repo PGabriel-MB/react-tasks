@@ -32,9 +32,7 @@ export const Form = styled.form`
     margin: 2em;
     background-color: #ffffff;
     border-radius: 25px;
-    padding: 1em;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding: 5em 4em;
     text-align: center;
     width: 20rem;
     box-shadow: 0 11px 12px 5px rgba(0, 0, 0, 0.25);
@@ -44,7 +42,7 @@ export const Input = styled.input`
     outline: 0;
     background-color: #A3EBE1;
     color: #FFFFFF;
-    padding: 1rem;
+    padding: 2rem;
     border: none;
     border-radius: 8px;
     padding: .7rem .7rem;
