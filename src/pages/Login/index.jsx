@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CheckCircle } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 
 import { Auth } from '../../services/auth.js';
+import { UserContext } from '../../contexts/UserContext';
 
 import {
     Container,
@@ -13,11 +15,15 @@ import {
 } from './styles.js';
 
 const Login = () => {
+    const { dispatch: userDispatcher, state: user } = useContext(UserContext);
+    const navigate = useNavigate();
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [formValid, setFormValid] = useState(true);
     const [alertMessage, setAlertMessage] = useState('');
+
 
     const showData = () => {
         const data = { email, password }
@@ -39,8 +45,10 @@ const Login = () => {
         
         Auth.login({ email, password })
             .then(res => {
-                
+                userDispatcher({ type: 'setUser', payload: res.data })
+                navigate('/dashboard')
             })
+            .catch(err => console.log('Erro: ', err))
     }
 
     return (

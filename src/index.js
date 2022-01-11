@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+
 import './index.css';
+import { UserProvider } from './contexts/UserContext'
 import * as serviceWorker from './serviceWorker';
 
 import Root from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <UserProvider>
+      <Root />
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
