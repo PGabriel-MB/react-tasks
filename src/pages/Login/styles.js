@@ -61,3 +61,13 @@ export const Button = styled.button`
     padding: .5rem .7rem;
     font-size: 1em;
 `;
+
+export const AlertArea = styled.div`
+    padding: 1rem;
+    border-radius: 7px;
+    border: 2px solid #eb4034;
+    background-color: #fadcd9;
+    color: #eb4034;
+    margin: 1em;
+    font-weight: bolder;
+`

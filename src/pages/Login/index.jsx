@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CheckCircle } from 'react-feather';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { Auth } from '../../services/auth.js';
 import { UserContext } from '../../contexts/UserContext';
@@ -11,12 +11,13 @@ import {
     Title,
     Form,
     Input,
-    Button
+    Button,
+    AlertArea
 } from './styles.js';
 
 const Login = () => {
     const { dispatch: userDispatcher, state: user } = useContext(UserContext);
-    const navigate = useNavigate();
+    const navigate = useHistory('/dashboard');
 
 
     const [email, setEmail] = useState('');
@@ -30,19 +31,21 @@ const Login = () => {
         console.log('Campos', data, formValid, alertMessage)
     }
 
-    const isEmpty = (value) => {
-        if (value)
-            setFormValid(true)
-        else {
-            setFormValid(false);
-            setAlertMessage('Preencha todos campos!')
-        }
+    const isEmpty = () => {
+        if (email && password)
+            return false
+        return true
     }
 
     const handleLogin = () => {
-        if (!formValid)
+        if (isEmpty()) {
+            setAlertMessage('Preencha todos os campos!')
+            setFormValid(false)
             return
+        }
         
+        setFormValid(true)
+
         Auth.login({ email, password })
             .then(res => {
                 userDispatcher({ type: 'setUser', payload: res.data })
@@ -62,7 +65,6 @@ const Login = () => {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="E-mail" type="email"
-                    onBlur={e => isEmpty(e.target.value)}
                     required
                 />
                 <Input
@@ -70,7 +72,6 @@ const Login = () => {
                     onChange={e => setPassword(e.target.value)}
                     placeholder="Senha" 
                     type="password"
-                    onBlur={e => isEmpty(e.target.value)}
                     required
                 />
                 <br />
@@ -88,7 +89,7 @@ const Login = () => {
                             backgroundColor: '#47C2B1',
                             color: 'white',
                         }}
-                        onClick={e => showData()}
+                        onClick={e => handleLogin()}
                     >Login</Button>
                     <Button
                         id="registerButton"
@@ -99,8 +100,11 @@ const Login = () => {
                             color: '#47C2B1',
                             backgroundColor: '#ffffff',
                         }}
+                        onClick={()=> showData()}
                     > Cadastro </Button>
                 </div>
+                { !formValid &&
+                <AlertArea>{alertMessage}</AlertArea> }
             </Form>
         </Container>
     )

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { base_url } from '../config'
+import config from '../config'
 
 export const request = axios.create({
-    baseURL: base_url,
+    baseURL: config.base_url,
     timeout: 1000
 })
