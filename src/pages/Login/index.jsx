@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { CheckCircle } from 'react-feather';
 import { useHistory } from 'react-router-dom';
 
-import { Auth } from '../../services/auth.js';
+import { Auth } from '../../services/api/auth.js';
+import { Storage } from '../../services/storage.js';
 import { UserContext } from '../../contexts/UserContext';
 
 import {
@@ -25,10 +26,30 @@ const Login = () => {
     const [formValid, setFormValid] = useState(true);
     const [alertMessage, setAlertMessage] = useState('');
 
+    
+    const verifyUserAndToken = ({ userId, token }) => {
+        if(token && userId)
+            Auth.validateToken({ token, userId })
+                .then(res => {
+
+                })
+    }
+
+
+    useEffect(() => {
+        const token = Storage.getToken()
+        const userId = Storage.getUserId()
+
+        verifyUserAndToken({ userId, token })
+    }, [])
 
     const showData = () => {
         const data = { email, password }
         console.log('Campos', data, formValid, alertMessage)
+    }
+
+    const clearAlertMessage = () => {
+        setTimeout(() => setFormValid(true), 3000);
     }
 
     const isEmpty = () => {
@@ -37,10 +58,12 @@ const Login = () => {
         return true
     }
 
+
     const handleLogin = () => {
         if (isEmpty()) {
             setAlertMessage('Preencha todos os campos!')
             setFormValid(false)
+            clearAlertMessage();
             return
         }
         

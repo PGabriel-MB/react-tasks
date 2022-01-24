@@ -10,5 +10,8 @@ export const Auth = {
             email,
             password
         })
+    },
+    async validateToken({ token, userId }) {
+        return await request.post('/auth/validate-token', { token, userId });
     }
 }
