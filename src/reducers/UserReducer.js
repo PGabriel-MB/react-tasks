@@ -1,3 +1,5 @@
+import { Storage } from "../services/storage"
+
 export const userIntialState = {
     user: {},
     token: '',
@@ -7,7 +9,10 @@ export const userIntialState = {
 export const UserReducer = (state, action) => {
     switch(action.type) {
         case 'setUser':
-            localStorage.setItem('token', action.payload.token)
+            const userId = action.payload.user.id;
+            const { token, isAuthenticated } = action.payload
+            
+            Storage.saveData({ userId, token, isAuthenticated });
             return action.payload
         case 'clearUser':
             return userIntialState

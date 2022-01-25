@@ -13,6 +13,11 @@ export const Storage = {
     setIsAuthenticated(isAuthenticated) {
         localStorage.setItem(this.keys.IS_AUTHENTICADED, isAuthenticated)
     },
+    saveData({ userId, token, isAuthenticated }) {
+        this.saveToken(token);
+        this.saveUserId(userId);
+        this.setIsAuthenticated(isAuthenticated);
+    },
     getToken() {
         return localStorage.getItem(this.keys.TOKEN)
     },

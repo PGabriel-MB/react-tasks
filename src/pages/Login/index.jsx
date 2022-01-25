@@ -18,8 +18,7 @@ import {
 
 const Login = () => {
     const { dispatch: userDispatcher, state: user } = useContext(UserContext);
-    const navigate = useHistory('/dashboard');
-
+    const navigate = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,8 +30,13 @@ const Login = () => {
         if(token && userId)
             Auth.validateToken({ token, userId })
                 .then(res => {
-
+                    userDispatcher({
+                        type: 'setUser',
+                        payload: res.data
+                    });
+                    navigate.push('/dashboard')
                 })
+                .catch(err => console.log('Erro', err));
     }
 
 
@@ -42,6 +46,7 @@ const Login = () => {
 
         verifyUserAndToken({ userId, token })
     }, [])
+
 
     const showData = () => {
         const data = { email, password }
