@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CheckCircle } from 'react-feather';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { Auth } from '../../services/api/auth.js';
 import { Storage } from '../../services/storage.js';
@@ -119,17 +119,24 @@ const Login = () => {
                         }}
                         onClick={e => handleLogin()}
                     >Login</Button>
-                    <Button
+                    <Link
+                        to="/register"
                         id="registerButton"
                         className="buttonStyle"
                         type="button"
                         style={{
-                            border: '1px solid #47C2B1',
+                            border: '2px solid #47C2B1',
                             color: '#47C2B1',
                             backgroundColor: '#ffffff',
+                            minWidth: '8rem',
+                            fontWeight: '900',
+                            borderRadius: '7px',
+                            padding: '.5rem .7rem',
+                            fontSize: '1em',
+                            textDecoration: 'none'
                         }}
                         onClick={()=> showData()}
-                    > Cadastro </Button>
+                    > Cadastro </Link>
                 </div>
                 { !formValid &&
                 <AlertArea>{alertMessage}</AlertArea> }
