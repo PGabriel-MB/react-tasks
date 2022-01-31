@@ -1,10 +1,10 @@
 import React from "react";
 
-export const Register = () => {
+export const Dashboard = () => {
 
     return (
         <div>
-            <h1>Register Page</h1>
+            <h1>Dashboard Page</h1>
         </div>
     )
 }

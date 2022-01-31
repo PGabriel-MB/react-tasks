@@ -17,8 +17,8 @@ import {
 } from './styles.js';
 
 const Login = () => {
-    const { dispatch: userDispatcher, state: user } = useContext(UserContext);
-    const navigate = useHistory();
+    const { dispatch: userDispatcher } = useContext(UserContext);
+    const history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,7 +34,7 @@ const Login = () => {
                         type: 'setUser',
                         payload: res.data
                     });
-                    navigate.push('/dashboard')
+                    history.push('/dashboard')
                 })
                 .catch(err => console.log('Erro', err));
     }
@@ -45,7 +45,7 @@ const Login = () => {
         const userId = Storage.getUserId()
 
         verifyUserAndToken({ userId, token })
-    }, [])
+    });
 
 
     const showData = () => {
@@ -77,7 +77,7 @@ const Login = () => {
         Auth.login({ email, password })
             .then(res => {
                 userDispatcher({ type: 'setUser', payload: res.data })
-                navigate('/dashboard')
+                history.push('/dashboard')
             })
             .catch(err => console.log('Erro: ', err))
     }
