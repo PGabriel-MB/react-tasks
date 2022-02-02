@@ -20,7 +20,7 @@ export const Register = () => {
                 <Title>ToDoer</Title>
                 <CheckCircle color='#ffffff' size="100" />
             </TitleArea>
-            <Form>
+            <Form>.,
                 <Input
                     id="name"
                     name="name"

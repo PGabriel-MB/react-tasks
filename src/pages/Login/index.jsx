@@ -135,7 +135,6 @@ const Login = () => {
                             fontSize: '1em',
                             textDecoration: 'none'
                         }}
-                        onClick={()=> showData()}
                     > Cadastro </Link>
                 </div>
                 { !formValid &&
