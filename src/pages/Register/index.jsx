@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CheckCircle } from 'react-feather';
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,17 @@ import {
     AlertArea
 } from '../Login/styles'
 
+import { Auth } from '../../services/api/auth.js'
+
+
 export const Register = () => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password1, setPassword1] = useState('');
+    const [password2, setPassword2] = useState('');
+
+    const handleRegister = () => {}
 
     return (
         <Container>
