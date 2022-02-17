@@ -22,7 +22,36 @@ export const Register = () => {
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
 
-    const handleRegister = () => {}
+
+    const isValidForm = () => {
+        if (!name || !email || !password1 || !password2)
+            return false
+        return true
+    }
+
+    const isSamePassword = () => {
+        if (password1 !== password2)
+            return false
+        return true
+    }
+
+    const handleRegister = () => {
+        if (isValidForm()) {
+            if (isSamePassword()) {
+                const data = { name, email, password1 };
+                
+                Auth.register(data)
+                    .then(res => {
+                        // Success alert message
+                    })
+                    .catch()
+            } else {
+                //Alert message to Set
+            }
+        } else {
+            // Alert Message to set
+        }
+    }
 
     return (
         <Container>
@@ -35,6 +64,8 @@ export const Register = () => {
                     id="name"
                     name="name"
                     placeholder="Nome"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
                 />
                 <Input
                     id="email"
@@ -42,18 +73,25 @@ export const Register = () => {
                     placeholder="E-mail"
                     type="email"
                     inputMode="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                 />
                 <Input
                     id="password1"
                     name="password1"
                     placeholder="Password"
                     type="password1"
+                    value={password1}
+                    onChange={e => setPassword1(e.target.value)}
                 />
                 <Input
                     id="password2"
                     name="password2"
                     placeholder="Confirm password"
                     type="password2"
+                    value={password2}
+                    onChange={e => setPassword2(e.target.value)}
+                    onBlur={e => isSamePassword()}
                 />
                 <br />
                 <div style={{
