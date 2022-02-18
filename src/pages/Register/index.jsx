@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle } from 'react-feather';
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
     Container,
@@ -16,11 +17,14 @@ import { Auth } from '../../services/api/auth.js'
 
 
 export const Register = () => {
+    const history = useHistory();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
+
+    const [alertMessage, setAlertMessage] = useState('');
 
 
     const isValidForm = () => {
@@ -42,14 +46,18 @@ export const Register = () => {
                 
                 Auth.register(data)
                     .then(res => {
-                        // Success alert message
+                        console.log('userId', res.data.id);
+                        history.push('/');
                     })
-                    .catch()
+                    .catch(err => {
+                        console.log('Error: ', err)
+                        setAlertMessage('Houve alguma falha ao salvar seus dados! Tente mais tarde...')
+                    });
             } else {
-                //Alert message to Set
+                setAlertMessage('As senhas não são iguais! Tente novamente.')
             }
         } else {
-            // Alert Message to set
+            setAlertMessage('Preencha todos os campos do formulário!')
         }
     }
 
