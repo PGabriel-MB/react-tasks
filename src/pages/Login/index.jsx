@@ -31,7 +31,7 @@ const Login = () => {
             Auth.validateToken({ token, userId })
                 .then(res => {
                     userDispatcher({
-                        type: 'setUser',
+                        type: 'setAuthentication',
                         payload: res.data
                     });
                     history.push('/dashboard')

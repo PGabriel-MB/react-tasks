@@ -8,13 +8,17 @@ export const userIntialState = {
 
 export const UserReducer = (state, action) => {
     switch(action.type) {
-        case 'setUser':
+        case 'setAuthentication':
             const userId = action.payload.user.id;
             const { token, isAuthenticated } = action.payload
             
             Storage.saveData({ userId, token, isAuthenticated });
             return action.payload
-        case 'clearUser':
+        case 'setUser':
+            return { ...state, user: action.payload }
+        case 'setToken':
+            return { ...state, token: action.payload }
+        case 'clearAuthentication':
             return userIntialState
         default:
             return state;
