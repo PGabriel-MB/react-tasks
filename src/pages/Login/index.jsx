@@ -27,6 +27,7 @@ const Login = () => {
 
     
     const verifyUserAndToken = ({ userId, token }) => {
+        console.log('AQUI', token, userId)
         if(token && userId)
             Auth.validateToken({ token, userId })
                 .then(res => {
@@ -45,7 +46,7 @@ const Login = () => {
         const userId = Storage.getUserId()
 
         verifyUserAndToken({ userId, token })
-    });
+    }, []);
 
 
     const showData = () => {
