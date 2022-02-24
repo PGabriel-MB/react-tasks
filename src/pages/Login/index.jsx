@@ -27,7 +27,6 @@ const Login = () => {
 
     
     const verifyUserAndToken = ({ userId, token }) => {
-        console.log('AQUI', token, userId)
         if(token && userId)
             Auth.validateToken({ token, userId })
                 .then(res => {
@@ -77,7 +76,7 @@ const Login = () => {
 
         Auth.login({ email, password })
             .then(res => {
-                userDispatcher({ type: 'setUser', payload: res.data })
+                userDispatcher({ type: 'setAuthentication', payload: res.data })
                 history.push('/dashboard')
             })
             .catch(err => console.log('Erro: ', err))

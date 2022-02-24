@@ -14,12 +14,17 @@ export const UserReducer = (state, action) => {
             
             Storage.saveData({ userId, token, isAuthenticated });
             return action.payload
+
         case 'setUser':
+            Storage.saveUserId(action.payload.user.id)
             return { ...state, user: action.payload }
+
         case 'setToken':
             return { ...state, token: action.payload }
+
         case 'clearAuthentication':
             return userIntialState
+
         default:
             return state;
     }
