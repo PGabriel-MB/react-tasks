@@ -48,11 +48,6 @@ const Login = () => {
     }, []);
 
 
-    const showData = () => {
-        const data = { email, password }
-        console.log('Campos', data, formValid, alertMessage)
-    }
-
     const clearAlertMessage = () => {
         setTimeout(() => setFormValid(true), 3000);
     }
@@ -79,7 +74,12 @@ const Login = () => {
                 userDispatcher({ type: 'setAuthentication', payload: res.data })
                 history.push('/dashboard')
             })
-            .catch(err => console.log('Erro: ', err))
+            .catch(err => {
+                setAlertMessage(`Erro no envio do formulário: ${err}`)
+                setFormValid(false);
+                clearAlertMessage();
+                console.log('Erro: ', err)
+            });
     }
 
     return (
