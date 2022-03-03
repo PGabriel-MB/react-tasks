@@ -25,6 +25,7 @@ export const Register = () => {
     const [password2, setPassword2] = useState('');
 
     const [alertMessage, setAlertMessage] = useState('');
+    const [formValid, setFormValid] = useState(true);
 
 
     const isValidForm = () => {
@@ -51,12 +52,15 @@ export const Register = () => {
                     })
                     .catch(err => {
                         console.log('Error: ', err)
+                        setFormValid(false)
                         setAlertMessage('Houve alguma falha ao salvar seus dados! Tente mais tarde...')
                     });
             } else {
+                setFormValid(false);
                 setAlertMessage('As senhas não são iguais! Tente novamente.')
             }
         } else {
+            setFormValid(false);
             setAlertMessage('Preencha todos os campos do formulário!')
         }
     }
@@ -67,7 +71,7 @@ export const Register = () => {
                 <Title>ToDoer</Title>
                 <CheckCircle color='#ffffff' size="100" />
             </TitleArea>
-            <Form>.,
+            <Form>
                 <Input
                     id="name"
                     name="name"
@@ -135,6 +139,8 @@ export const Register = () => {
                         }}
                     > Login </Link>
                 </div>
+                { !formValid &&
+                <AlertArea>{alertMessage}</AlertArea>}
             </Form>
         </Container>
     )
