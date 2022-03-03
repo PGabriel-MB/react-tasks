@@ -40,6 +40,10 @@ export const Register = () => {
         return true
     }
 
+    const clearAlertMessage = () => {
+        setTimeout(() => setFormValid(true), 3000);
+    }
+
     const handleRegister = () => {
         if (isValidForm()) {
             if (isSamePassword()) {
@@ -57,11 +61,13 @@ export const Register = () => {
                     });
             } else {
                 setFormValid(false);
-                setAlertMessage('As senhas não são iguais! Tente novamente.')
+                setAlertMessage('As senhas não são iguais! Tente novamente.');
+                clearAlertMessage();
             }
         } else {
             setFormValid(false);
-            setAlertMessage('Preencha todos os campos do formulário!')
+            setAlertMessage('Preencha todos os campos do formulário!');
+            clearAlertMessage();
         }
     }
 
@@ -120,6 +126,7 @@ export const Register = () => {
                             backgroundColor: '#47C2B1',
                             color: 'white',
                         }}
+                        onClick={() => handleRegister()}
                     >Cadastrar</Button>
                     <Link
                         to="/"
@@ -139,7 +146,7 @@ export const Register = () => {
                         }}
                     > Login </Link>
                 </div>
-                { !formValid &&
+                {!formValid &&
                 <AlertArea>{alertMessage}</AlertArea>}
             </Form>
         </Container>
