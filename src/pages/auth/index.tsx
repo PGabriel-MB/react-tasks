@@ -1,9 +1,18 @@
-import { ReactElement } from "react";
+import React from "react";
 
-export const Auth = (): ReactElement => {
+import { Container } from "../../components/ui/Container";
+
+import * as S from "./style";
+
+export const Auth: React.FC = () => {
   return (
-	<>
-		<p style={{ color: "white"}}>Hello, my friend!</p>
-	</>
+		<Container>
+			<S.VeritcalSpacing>
+				<S.Card>
+					<S.Input />
+					<S.Input />
+				</S.Card>
+			</S.VeritcalSpacing>
+		</Container>
 	);
 }

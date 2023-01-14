@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from "react";
 
 import { AppRoutes } from "./routes";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC  = () =>{
   return (
     <AppRoutes />
   )
