@@ -9,8 +9,21 @@ export const Auth: React.FC = () => {
 		<Container>
 			<S.VeritcalSpacing>
 				<S.Card>
-					<S.Input />
-					<S.Input />
+					<S.Input placeholder="Email"/>
+					<S.Input placeholder="Password"/>
+					<S.ButtonRow>
+						<S.Button
+							style={{
+								color: "#ffffff",
+								backgroundColor: "var(--green-dark)"
+							}}
+						>
+							Login
+						</S.Button>
+						<S.Button style={{color: "var(--green-dark)"}}>
+							Cadastro
+						</S.Button>
+					</S.ButtonRow>
 				</S.Card>
 			</S.VeritcalSpacing>
 		</Container>

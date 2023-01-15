@@ -22,3 +22,7 @@ body {
   margin: 0;
   background: radial-gradient(102.8% 100% at 11.200000000000001% 23%, var(--primary) 0%, rgb(24, 73, 66) 100%);
 }
+
+button:focus, input:focus {
+  outline: none;
+}
