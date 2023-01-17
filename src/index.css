@@ -12,6 +12,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  height: 100%;
+
   /* Colors */
   --primary: #47c2b1;
   --green-clean: #A3EBE1;
