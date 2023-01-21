@@ -19,7 +19,7 @@ export const Auth: React.FC = () => {
 					>
 						Login
 					</S.Button>
-					<S.Button style={{color: "var(--green-dark)"}}>
+					<S.Button style={{color: 'var(--green-dark)', backgroundColor: 'var(--white)'}}>
 						Cadastro
 					</S.Button>
 				</S.ButtonRow>
