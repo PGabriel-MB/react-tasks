@@ -1,4 +1,5 @@
 import React from "react";
+import { BsCheck2Circle } from "react-icons/bs"
 
 import { Container } from "../../components/ui/Container";
 
@@ -7,6 +8,10 @@ import * as S from "./style";
 export const Auth: React.FC = () => {
   return (
 		<Container>
+			<S.HeaderWrapper>
+				<h1>ToDoer</h1>
+				<BsCheck2Circle size={100} />
+			</S.HeaderWrapper>
 			<S.Card>
 				<S.Input placeholder="Email"/>
 				<S.Input placeholder="Password"/>

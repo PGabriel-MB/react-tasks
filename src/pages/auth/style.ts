@@ -1,5 +1,21 @@
 import style from "styled-components";
 
+export const HeaderWrapper = style.div`
+	display: flex;
+	align-items: center;
+	
+	> h1 {
+		text-align: center;
+		font-size: 74px;
+		font-weight: 900;
+
+		@media (max-width: 600px) {
+			font-size: 45px;
+		}
+	}
+
+`
+
 export const Card = style.div`
 	padding: 5em;
 	background-color: var(--white);
@@ -9,22 +25,16 @@ export const Card = style.div`
 	justify-content: center;
 	flex-direction: column;
 	width: 460px;
-
-	@media (max-width: 420px) {
-		max-width: 400px;
+	
+	@media (max-width: 650px) {
+		width: 80%;
 		margin: 5px;
-		padding: 50px 50px;
+		padding: 30px 25px;
 
 		> input {
 			font-size: 14px;
 			padding: 10px;
 		}
-	}
-
-	@media (max-width: 300px) {
-		width: 100%;
-		margin: 5px;
-		padding: 30px;
 
 		> div {
 			> button {
