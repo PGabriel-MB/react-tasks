@@ -5,6 +5,7 @@ import React, {
 } from 'react'
 import { User } from '../entity/user'
 import { LoginForm, RegisterForm } from '../entity/auth';
+import UserRequest from '../requests/UserRequests';
 
 export interface UserContextProps {
   user?: User;
@@ -21,10 +22,30 @@ export const UserContext = createContext<UserContextProps>({} as UserContextProp
 export const UserProvider: React.FC = ({ children }: any) => {
   const [user, setUser] = useState<User>({} as User);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const userRequest = new UserRequest()
 
-  const Login = async (data: LoginForm) => {}
+  const Login = async (data: LoginForm) => {
+    try {
+      await userRequest.login(data)
+        .then(user => {
+          setUser(user);
+          setIsAuthenticated(true);
+        })
+    } catch (err) {
+      console.log('Erro - Login', err);
+    }
+  }
 
-  const Register = async (data: RegisterForm) => {}
+  const Register = async (data: RegisterForm) => {
+    try {
+      await userRequest.signUp(data)
+        .then(response => {
+          console.log('Sucesso - Register', data)
+        });
+    } catch (err) {
+      console.log('Erro - Register', err)
+    }
+  }
 
   const RecoveryPessword = async (email: string) => {}
 

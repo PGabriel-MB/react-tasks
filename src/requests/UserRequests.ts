@@ -11,13 +11,18 @@ interface RegisterReturn {
 class UserRequest {
   // Auth/Register Requests
   async login(data: LoginForm): Promise<User> {
-    const response = baseRequest.post<User>('auth/login', data);
+    const response = baseRequest.post<User>('/auth/login', data);
     return (await response).data
   }
 
-  async signUp(data: RegisterForm): Promise<RegisterForm> {
-    const response = baseRequest.post<User>('auth/register', data);
+  async signUp(data: RegisterForm): Promise<RegisterReturn> {
+    const response = baseRequest.post<RegisterReturn>('/auth/register', data);
     return (await response).data
+  }
+
+  async forgotPassword(email: string): Promise<number> {
+    const response = await baseRequest.post('/auth/forgot');
+    return response.status
   }
 
   // User requests
